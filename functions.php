@@ -5,7 +5,6 @@ add_action( 'wp_enqueue_scripts', 'themeslug_assets' );
 function themeslug_assets() {
 	$asset = include get_parent_theme_file_path( 'public/css/screen.asset.php' );
 
-	// Loads the primary stylesheet.
 	wp_enqueue_style(
 		'themeslug-style',
 		get_parent_theme_file_uri( 'public/css/screen.css' ),
