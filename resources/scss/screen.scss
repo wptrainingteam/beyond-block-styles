@@ -1,0 +1,52 @@
+// `<hr>` is necessary for overwriting styles.
+hr.wp-block-separator[class*=is-style-icon] {
+	display: flex;
+	justify-content: center;
+	border: none;
+	text-align: center;
+	overflow: visible;
+	width: 100% !important;
+
+	// Use `!important` to overrule core's use of the `background` shorthand
+	// instead of the targeted property itself.
+	background-color: transparent !important;
+	background-repeat: repeat-x !important;
+	background-position: 0% 50% !important;
+	background-size: 100% 2px !important;
+
+	// Don't use `!important` for the background image, which allows user-
+	// selected background gradients to work.
+	background-image: linear-gradient( 90deg, currentColor, currentColor );
+
+	// Styles the icon.
+	&::before {
+		content: var( --separator-icon, "\2766" ); // floral heart default.
+		padding: 0 0.5em;
+		font-size: var( --wp--preset--font-size--large );
+		line-height: 1;
+		background-color: var( --wp--preset--color--base );
+	}
+
+	// If parent has background color, inherit down to the icon background.
+	:where( .has-background[class*=-background-color] ) &,
+	:where( .has-background[class*=-background-color] ) &::before {
+		background-color: inherit !important;
+	}
+}
+
+.is-style-icon-blossom        { --separator-icon: "🌼"; }
+.is-style-icon-sun            { --separator-icon: "☀️"; }
+.is-style-icon-feather        { --separator-icon: "🪶"; }
+.is-style-icon-fire           { --separator-icon: "🔥"; }
+.is-style-icon-leaves         { --separator-icon: "🍃"; }
+.is-style-icon-coffee         { --separator-icon: "☕"; }
+.is-style-icon-beer           { --separator-icon: "🍻"; }
+.is-style-icon-lotus          { --separator-icon: "🪷"; }
+.is-style-icon-melting-face   { --separator-icon: "🫠"; }
+.is-style-icon-guitar         { --separator-icon: "🎸"; }
+.is-style-icon-pencil         { --separator-icon: "✏️"; }
+.is-style-icon-rocket         { --separator-icon: "🚀"; }
+.is-style-icon-clover         { --separator-icon: "☘️"; }
+.is-style-icon-star           { --separator-icon: "⭐"; }
+.is-style-icon-sunflower      { --separator-icon: "🌻"; }
+.is-style-icon-beach-umbrella { --separator-icon: "⛱️"; }
