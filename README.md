@@ -4,6 +4,6 @@ This repository is set up to showcase the code from the [Beyond Block Styles](ht
 
 Each branch of the repository corresponds to a post in the series:
 
-- [Part 1](/tree/part-1)
-- [Part 2](/tree/part-2)
-- [Part 3](/tree/part-3)
+- [Part 1](https://github.com/wptrainingteam/beyond-block-styles/tree/part-1)
+- [Part 2](https://github.com/wptrainingteam/beyond-block-styles/tree/part-2)
+- [Part 3](https://github.com/wptrainingteam/beyond-block-styles/tree/part-3)
