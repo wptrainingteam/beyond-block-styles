@@ -1,17 +1,28 @@
 // Internal dependencies.
-import { ICONS } from "./const";
+import SeparatorIconControl from './control-icons';
 
 // WordPress dependencies.
-import { registerBlockStyle } from '@wordpress/blocks';
-import domReady               from '@wordpress/dom-ready';
-import { __, sprintf }        from '@wordpress/i18n';
+import { BlockControls } from '@wordpress/block-editor';
+import { addFilter } from '@wordpress/hooks';
 
-// Register a block style for each icon.
-domReady( () => {
-	ICONS.forEach( ( icon ) =>
-		registerBlockStyle( 'core/separator', {
-			name: `icon-${ icon.value }`,
-			label: sprintf( __( 'Icon: %s', 'theme-slug' ), icon.icon )
-		} )
+const withSeparatorIcons = ( BlockEdit ) => ( props ) => {
+	return 'core/separator' === props.name ? (
+		<>
+			<BlockEdit { ...props } />
+			<BlockControls group="other">
+				<SeparatorIconControl
+					attributes={ props.attributes }
+					setAttributes={ props.setAttributes }
+				/>
+			</BlockControls>
+		</>
+	) : (
+		<BlockEdit { ...props } />
 	);
-} );
+};
+
+addFilter(
+	'editor.BlockEdit',
+	'theme-slug/separator-icons',
+	withSeparatorIcons
+);

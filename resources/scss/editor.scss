@@ -1,0 +1,16 @@
+// WordPress imports.
+@use '~@wordpress/base-styles/variables';
+
+.theme-slug-sep-icons-popover .components-popover__content {
+	padding: variables.$grid-unit-20;
+}
+
+.theme-slug-sep-icons-picker {
+	&__description {
+		margin: 0 0 variables.$grid-unit-20;
+	}
+
+	&__button {
+		font-size: 20px;
+	}
+}
